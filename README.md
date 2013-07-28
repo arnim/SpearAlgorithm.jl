@@ -5,7 +5,8 @@ Implementation of the [SPEAR ranking algorithm](http://www.michael-noll.com/proj
 
 Usage
 -----
-Start with a list of user activities on resources and a credit scoring function as input to generate the adjacency matrix.
+Start with a chronological ordered list of user activities on resources and a credit scoring function as input to generate the adjacency matrix.
+The first column of the activities matrix refers to the user the second to the resource. Each row of the matrix represents a single activity.
 
     julia> include("spear.jl")
 	julia> activities = [1 1
