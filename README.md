@@ -15,24 +15,15 @@ The first column of the activities matrix refers to the user the second to the r
 	julia> A = generateAdjacencyMatrix(activities, C)
 	julia> showall(A)        # display the adjacency matrix
 	
-Calculate the top user expertise scores and resource qualities
+Calculate the user expertise scores and resource qualities
 
 	julia> (expertise, quality) = runSpear(A)
-	
-To print the results 
-
-	julia> iSortUsers = sortperm(vec(expertise), Sort.Reverse)
-	julia> sortedPrintU = reduce(*,map((i -> "$(users[i]) =>  $(expertise[i])\n"),iSortUsers))
-	julia> println("Users sorted by expertise \n$sortedPrintU")
-	Users sorted by expertise 
-	alice =>  0.5857864376269051
-	bob =>  0.4142135623730951
-
-	julia> iSortResources = sortperm(vec(quality), Sort.Reverse)
-	julia> sortedPrintR = reduce(*,map((i -> "$(resources[i]) =>  $(quality[i])\n"),iSortResources))
-	julia> println("Resources sorted by quality \n$sortedPrintR")
-	Resources sorted by quality 
-	http://www.quuxlabs.com/ =>  1.0
+	julia> showall(expertise) # print the expertise for each user
+	x2 Float64 Array:
+	0.585786  0.414214
+	julia> showall(quality)   # print the quality for each resource
+	1x1 Float64 Array:
+	1.0
 
 Alternatively cd into demo and run
 
